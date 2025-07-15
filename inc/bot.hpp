@@ -7,8 +7,9 @@
 
 class Bot{
 public:
-	Bot(std::string tokenIn, std::string botCommand) : token(tokenIn), bot(tokenIn, dpp::i_default_intents | dpp::i_message_content) {
+	Bot(std::string tokenIn, std::string botCommand, dpp::snowflake guildId) : token(tokenIn), bot(tokenIn, dpp::i_default_intents | dpp::i_message_content) {
 		this->botCommand = botCommand;
+		this->guildId = guildId;
 		bot.on_log(dpp::utility::cout_logger());
 		bot.on_message_create([this](const dpp::message_create_t &in){
 				if(!in.msg.content.rfind(this->botCommand, 0)){ // if the bot command string is at the beginning of the message
@@ -22,6 +23,7 @@ private:
 	absl::flat_hash_map<dpp::snowflake, Role> roles;
 	std::string token;
 	std::string botCommand;
+	dpp::snowflake guildId;
 	dpp::cluster bot;
 	void Init();
 	void RegenerateRoles();

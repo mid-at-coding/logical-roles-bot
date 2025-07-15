@@ -5,9 +5,14 @@ int main(int argc, char **argv){
 		std::cout << "Input bot token!" << std::endl;
 		exit(0);
 	}
+	if(argc < 3){
+		std::cout << "Input guild id!" << std::endl;
+		exit(0);
+	}
 	std::string botCommand = ".ping";
 	std::string token = argv[1];
-	Bot bot(token, botCommand);
+	dpp::snowflake guildId = std::stoi(argv[2]);
+	Bot bot(token, botCommand, guildId);
 	bot.Wait();
 	return 0; // holy OOP
 }

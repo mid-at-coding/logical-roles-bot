@@ -4,5 +4,5 @@
 class User{
 public:
 	dpp::snowflake ID;
-	absl::flat_hash_set<dpp::snowflake> Roles;
+	std::vector<dpp::snowflake> Roles;
 };

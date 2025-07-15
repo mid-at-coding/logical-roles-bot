@@ -7,8 +7,8 @@
 class RoleSet{
 	absl::flat_hash_set<dpp::snowflake> Users;
 public:
-	RoleSet (const RoleSet&) = delete;
-	RoleSet& operator= (const RoleSet&) = delete;
+/*	RoleSet (const RoleSet&) = delete;
+	RoleSet& operator= (const RoleSet&) = delete; */
 	absl::flat_hash_set<dpp::snowflake>& GetUsers();
 	RoleSet& operator* (const RoleSet&); // AND
 	RoleSet& operator^ (const RoleSet&); // XOR
