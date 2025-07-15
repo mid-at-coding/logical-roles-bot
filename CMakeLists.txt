@@ -8,6 +8,7 @@ project(logical-roles-bot VERSION 1.0 DESCRIPTION "Makes roles work with binary 
 add_executable(${PROJECT_NAME}
 	src/main.cpp
 	src/bot.cpp
+	src/role.cpp
 )
  
 find_package(abseil)
